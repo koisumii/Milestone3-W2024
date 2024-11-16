@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
+using HPlusSport.Security.Web.Classes;
 
 
 namespace HPlusSport.Security.Web.Models;
@@ -52,9 +53,21 @@ public static class ModelBuilderExtensions
             new Product { Id = 33, CategoryId = 5, Name = "Vitamin D3 1000 IU (100 tablets)", Sku = "SVD3", Price = 12.49M, IsAvailable = true }
         );
 
+        var hashInformationAdam = PasswordHelper.HashPassword("Adam's secret");
+        var hashInformationBarbara = PasswordHelper.HashPassword("b@rb@r@");
         modelBuilder.Entity<User>().HasData(
-            new User { Id = 1, Email = "adam@example.com", Password = "Adam's secret" },
-            new User { Id = 2, Email = "barbara@example.com", Password = "b@rb@r@" }
+            new User {
+                Id = 1,
+                Email = "adam@example.com",
+                Salt = hashInformationAdam.Salt,
+                Hash = hashInformationAdam.Hash,
+            },
+            new User {
+                Id = 2,
+                Email = "barbara@example.com",
+                Salt =  hashInformationBarbara.Salt,
+                Hash = hashInformationBarbara.Hash,
+            }
         );
     }
 
