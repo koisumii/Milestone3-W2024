@@ -11,5 +11,5 @@
 <div>Your search for @ViewData["SearchTerm"] yielded no results.</div>
 
 <script>
-    jQuery("h1.page-title").html('Search Result: @ViewBag.SearchTerm');
+    jQuery("h1.page-title").html('Search Result: @System.Web.HttpUtility.JavaScriptStringEncode(ViewBag.SearchTerm)');
 </script>
