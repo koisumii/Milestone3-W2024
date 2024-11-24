@@ -1,4 +1,12 @@
-﻿using HPlusSport.Security.Web.Classes;
+﻿/*
+ * Course: Web Programming 3
+ * Assessment: Milestone 3
+ * Created by: Rania Mustafa - 2256255
+ * Date: 23 November 2024
+ * Class Name: AccountController.cs
+ * Description: Handles user login, logout, and authentication using cookies.
+*/
+using HPlusSport.Security.Web.Classes;
 using HPlusSport.Security.Web.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
